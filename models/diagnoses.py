@@ -18,4 +18,4 @@ class NeomedConcomitantDiagnosis(models.Model):
             self.env['neonatal_pathology_department.concomitant_diagnosis'].create({
                 'name': i
             })
-    name = fields.Char(string="Сопутствующий диагноз")ываыв
+    name = fields.Char(string="Сопутствующий диагноз")
