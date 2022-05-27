@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <report id="report_inspection_health"
+            model="neomed_new.health_department"
+            string="Первичный осмотр"
+            report_type="qweb-html"
+            name="neomed_new.report_invoice_ins"
+            file="neomed_new.report_invoice_ins"
+    />
+
+    <report id="report_journal_health"
+            model="neomed_new.health_department"
+            string="Дневники"
+            report_type="qweb-html"
+            name="neomed_new.report_journal"
+            file="neomed_new.report_journal"
+    />
+
+    <report id="report_epicrisis_health"
+            model="neomed_new.health_department"
+            string="Выписной эпикриз"
+            report_type="qweb-html"
+            name="neomed_new.epicrises_health_department_report"
+            file="neomed_new.epicrises_health_department_report"
+    />
+
+    <report id="report_journal_opn"
+            model="neomed_new.pathology_department"
+            string="Дневники"
+            report_type="qweb-html"
+            name="neomed_new.report_journal_opn"
+            file="neomed_new.report_journal_opn"
+    />
+
+    <report id="report_inspection_opn"
+            model="neomed_new.pathology_department"
+            string="Первичный осмотр в отделении ОПН"
+            report_type="qweb-html"
+            name="neomed_new.report_inspection_OPN"
+            file="neomed_new.report_inspection_OPN"
+    />
+
+    <report id="report_epicrisis_opn"
+            model="neomed_new.pathology_department"
+            string="Выписной эпикриз"
+            report_type="qweb-html"
+            name="neomed_new.epicrises_pathology_department_report"
+            file="neomed_new.epicrises_pathology_department_report"
+    />
+
+
+    <report id="report_nutrition_pathology_department"
+            model="neomed_new.pathology_department"
+            string="Лист энтерального кормления"
+            report_type="qweb-html"
+            name="neomed_new.nutr_report_pathology_department"
+            file="neomed_new.nutr_report_pathology_department"
+    />
+
+    <report id="report_nutrition_health_department"
+            model="neomed_new.health_department"
+            string="Лист энтерального кормления"
+            report_type="qweb-html"
+            name="neomed_new.nutr_report_health_department"
+            file="neomed_new.nutr_report_health_department"
+    />
+
+
+</odoo>

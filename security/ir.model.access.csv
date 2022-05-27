@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_neonatal_pathology_department_patient_record,access.neonatal_pathology_department.patient_record,model_neonatal_pathology_department_patient_record,,1,1,1,1
+
+access_neonatal_pathology_department_mkb,access.neonatal_pathology_department.mkb,model_neonatal_pathology_department_mkb,,1,1,0,0
+
+access_neonatal_pathology_department_patient_movement,access.neonatal_pathology_department.patient_movement,model_neonatal_pathology_department_patient_movement,,1,1,1,1
+
+access_neonatal_pathology_department_department_record,access.neonatal_pathology_department.department_record,model_neonatal_pathology_department_department_record,,1,1,1,1

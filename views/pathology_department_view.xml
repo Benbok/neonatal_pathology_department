@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <!--                       Главное меню отделения opn_department (tree_view)              -->
+        <record id="patients_pathology_department_tree" model="ir.ui.view">
+            <field name="name">opn_department Tree
+            </field>
+            <field name="model">neonatal_pathology_department.department_record</field>
+            <field name="arch" type="xml">
+                <tree string="Отделение патологии новорожденных">
+                    <field name="no"/>
+                    <field name="name"/>
+                    <field name="case_history_number"/>
+                    <field name="date_of_birth"/>
+                    <field name="date_of_case_opening"/>
+                    <!--                    <field name="ds_discharge_main" string="Диагноз основной при поступлении"/>-->
+                    <!--                    <field name="date_of_case_closing"/>-->
+                    <!--                    <field name="motion" string="Исход"/>-->
+                </tree>
+            </field>
+        </record>
+
+        <!--                       Карта основаная_pathology_department (form)              -->
+        <record id="patients_pathology_department_form" model="ir.ui.view">
+            <field name="name">Patients Form</field>
+            <field name="model">neonatal_pathology_department.department_record</field>
+            <field name="arch" type="xml">
+                <form string="Patients">
+                    <group string="Данные ребенка">
+                        <field name="no"/>
+                        <field name="pathology_department_id"/>
+                        <field name="date_of_birth" readonly="1"/>
+                        <field name="date_of_case_opening" readonly="1"/>
+                        <field name="gestational_age" readonly="1"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <!--&lt;!&ndash;                    <header>&ndash;&gt;-->
+        <!--&lt;!&ndash;                        <button name="print_Inspection" type="object" string="Распечатать первичный осмотр"&ndash;&gt;-->
+        <!--&lt;!&ndash;                                attrs="{'invisible': [('button_check_inspection_opn', '!=', '+')]}"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                        <button name="print_Journal" type="object" string="Распечатать дневники"&ndash;&gt;-->
+        <!--&lt;!&ndash;                                attrs="{'invisible': [('button_check_journal', '!=', '+')]}"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                        <button name="print_Epicrisis" type="object" string="Распечатать эпикриз"&ndash;&gt;-->
+        <!--&lt;!&ndash;                                attrs="{'invisible': [('button_check_epicrisis', '!=', '+')]}"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                    </header>&ndash;&gt;-->
+        <!--                    <sheet>-->
+        <!--&lt;!&ndash;                        <field name="button_check_inspection_opn" attrs="{'invisible': True}"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                        <field name="button_check_journal" attrs="{'invisible': True}"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                        <field name="button_check_epicrisis" attrs="{'invisible': True}"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                        <div class="oe_button_box">&ndash;&gt;-->
+        <!--&lt;!&ndash;                            <button name="analysis_notification"&ndash;&gt;-->
+        <!--&lt;!&ndash;                                    type="object"&ndash;&gt;-->
+        <!--&lt;!&ndash;                                    class="oe_stat_button"&ndash;&gt;-->
+        <!--&lt;!&ndash;                                    icon="https://img.icons8.com/small/32/000000/thin-test-tube.png">&ndash;&gt;-->
+        <!--&lt;!&ndash;                                <field name="analysis_notification_count" widget="statinfo" string="Обследования"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                            </button>&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                            <button name="open_antibiotic_notification_count"&ndash;&gt;-->
+        <!--&lt;!&ndash;                                    type="object"&ndash;&gt;-->
+        <!--&lt;!&ndash;                                    class="oe_stat_button"&ndash;&gt;-->
+        <!--&lt;!&ndash;                                    icon="https://img.icons8.com/ios-glyphs/30/000000/pills.png">&ndash;&gt;-->
+        <!--&lt;!&ndash;                                <field name="antibiotic_notification_count" widget="statinfo" string="Антибиотики"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                            </button>&ndash;&gt;-->
+        <!--&lt;!&ndash;                            <br/>&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                            <button name="open_vascular_access"&ndash;&gt;-->
+        <!--&lt;!&ndash;                                    type="object"&ndash;&gt;-->
+        <!--&lt;!&ndash;                                    class="oe_stat_button"&ndash;&gt;-->
+        <!--&lt;!&ndash;                                    icon="https://img.icons8.com/ios-glyphs/30/000000/catheter.png">&ndash;&gt;-->
+        <!--&lt;!&ndash;                                <field name="vascular_access_notification_count" widget="statinfo"&ndash;&gt;-->
+        <!--&lt;!&ndash;                                       string="Доступы"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                            </button>&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                            <button name="open_nutrition_calculation"&ndash;&gt;-->
+        <!--&lt;!&ndash;                                    type="object"&ndash;&gt;-->
+        <!--&lt;!&ndash;                                    class="oe_stat_button"&ndash;&gt;-->
+        <!--&lt;!&ndash;                                    icon="https://img.icons8.com/metro/26/000000/baby-bottle.png">&ndash;&gt;-->
+        <!--&lt;!&ndash;                                <field name="nutrition_calculation_count" widget="statinfo"&ndash;&gt;-->
+        <!--&lt;!&ndash;                                       string="Смеси"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                            </button>&ndash;&gt;-->
+        <!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+        <!--                        <div class="oe_title">-->
+        <!--                            <h3>-->
+        <!--                                Медицинская карта пациента №-->
+        <!--                                <field name="case_history_number"/>-->
+        <!--                            </h3>-->
+        <!--                        </div>-->
+        <!--                        <group>-->
+        <!--                                    <group string="Данные ребенка">-->
+        <!--                                        <field name="pathology_department_id"/>-->
+        <!--                                        <field name="date_of_birth" readonly="1"/>-->
+        <!--                                        <field name="date_of_case_opening" readonly="1"/>-->
+        <!--                                        <field name="gestational_age" readonly="1"/>-->
+        <!--                                    </group>-->
+        <!--                            <group string="Антропометрические данные">-->
+        <!--                                <field name="birth_weight" readonly="1"/>-->
+        <!--                                <field name="growth_at_birth" readonly="1"/>-->
+        <!--                                <field name="head_circumference" readonly="1"/>-->
+        <!--                                <field name="chest_circumference" readonly="1"/>-->
+        <!--                            </group>-->
+        <!--&lt;!&ndash;                            <group colspan="2" string="Диагноз при поступлении">&ndash;&gt;-->
+        <!--&lt;!&ndash;                                <field name="ds_discharge_main" string="Основной"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                <field name="ds_discharge_main1" string="Осложнение"&ndash;&gt;-->
+        <!--&lt;!&ndash;                                       attrs="{'invisible': [('ds_discharge_main1', '=', False)]}"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                <field name="ds_discharge_main2" string="Сопутствующий"&ndash;&gt;-->
+        <!--&lt;!&ndash;                                       attrs="{'invisible': [('ds_discharge_main2', '=', False)]}"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                            </group>&ndash;&gt;-->
+        <!--                            &lt;!&ndash;                            <group colspan="2" string="Диагноз при выписке/переводе"&ndash;&gt;-->
+        <!--                            &lt;!&ndash;                                   attrs="{'invisible': [('ds_discharge_main', '=', False)]}">&ndash;&gt;-->
+        <!--                            &lt;!&ndash;                                <field name="ds_discharge_main" string="Основной"/>&ndash;&gt;-->
+        <!--                            &lt;!&ndash;                                <field name="ds_discharge_main1" string="Осложнение"&ndash;&gt;-->
+        <!--                            &lt;!&ndash;                                       attrs="{'invisible': [('ds_discharge_main1', '=', False)]}"/>&ndash;&gt;-->
+        <!--                            &lt;!&ndash;                                <field name="ds_discharge_main2" string="Сопутствующий"&ndash;&gt;-->
+        <!--                            &lt;!&ndash;                                       attrs="{'invisible': [('ds_discharge_main2', '=', False)]}"/>&ndash;&gt;-->
+        <!--                            &lt;!&ndash;                            </group>&ndash;&gt;-->
+        <!--                            <br/>-->
+        <!--                        </group>-->
+        <!--&lt;!&ndash;                        <notebook>&ndash;&gt;-->
+        <!--&lt;!&ndash;                            <page string="Первичный осмотр">&ndash;&gt;-->
+        <!--&lt;!&ndash;                                <field name="inspection_ids" string=" Первичный осмотр в отделении"&ndash;&gt;-->
+        <!--&lt;!&ndash;                                       context="{'default_mother_id': active_id}">&ndash;&gt;-->
+        <!--&lt;!&ndash;                                    <tree>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                        <field name="date"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                        <field name="ds_discharge_main" string="Основной диагноз"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                        <field name="doctors"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                    </tree>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                </field>&ndash;&gt;-->
+        <!--&lt;!&ndash;                            </page>&ndash;&gt;-->
+        <!--&lt;!&ndash;                            <page string="Дневниковые записи">&ndash;&gt;-->
+        <!--&lt;!&ndash;                                <field name="journal_ids" string=" Дневник"&ndash;&gt;-->
+        <!--&lt;!&ndash;                                       context="{'default_mother_id': active_id}">&ndash;&gt;-->
+        <!--&lt;!&ndash;                                    <tree>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                        <field name="sequence" widget="handle"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                        <field name="date"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                        <field name="mass" string="Масса(гр)"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                        <field name="day_number"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                        <field name="sevir"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                        <field name="mkb_id"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                        <field name="doctors" string="Врач"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                    </tree>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                </field>&ndash;&gt;-->
+        <!--&lt;!&ndash;                            </page>&ndash;&gt;-->
+        <!--&lt;!&ndash;                            <page name="analyzes" string="Обследования">&ndash;&gt;-->
+        <!--&lt;!&ndash;                                <field name="analyzes_ids" string=" Анализы/Консультации"&ndash;&gt;-->
+        <!--&lt;!&ndash;                                       context="{'default_mother_id': active_id}">&ndash;&gt;-->
+        <!--&lt;!&ndash;                                    <tree>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                        <field name="sequence" widget="handle"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                        <field name="date"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                        <field name="analysis_name"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                    </tree>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                </field>&ndash;&gt;-->
+        <!--&lt;!&ndash;                            </page>&ndash;&gt;-->
+        <!--&lt;!&ndash;                            <page name="epicrisis" string="Эпикризы" modifiers="{}">&ndash;&gt;-->
+        <!--&lt;!&ndash;                                <field name="epicrisis_ids" string=" Эпикриз"&ndash;&gt;-->
+        <!--&lt;!&ndash;                                       context="{'default_mother_id': active_id}">&ndash;&gt;-->
+        <!--&lt;!&ndash;                                    <tree>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                        <field name="date"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                        <field name="primary_diagnosis" string="Основной диагноз"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                        <field name="doctors" string="Врач"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                    </tree>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                </field>&ndash;&gt;-->
+        <!--&lt;!&ndash;                            </page>&ndash;&gt;-->
+        <!--&lt;!&ndash;                        </notebook>&ndash;&gt;-->
+        <!--                    </sheet>-->
+        <!--                </form>-->
+        <!--            </field>-->
+        <!--        </record>-->
+    </data>
+</odoo>

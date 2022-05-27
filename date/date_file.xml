@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    noupdate="1"-->
+    <data noupdate="0">
+        <function name="create_models" model="neonatal_pathology_department.mkb"/>
+    </data>
+</odoo>

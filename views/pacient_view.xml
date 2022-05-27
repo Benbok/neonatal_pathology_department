@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!---                      Главное меню всех пациентов (actions)                     -->
+        <record id="pathology_department_action" model="ir.actions.act_window">
+            <field name="name">Пациенты ОПН</field>
+            <field name="res_model">neonatal_pathology_department.patient_record</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Создайте новую историю пациента ОПН
+                </p>
+            </field>
+        </record>
+
+
+        <!--                       Главное меню всех пациентов (tree_view)              -->
+        <record id="patients_tree_view" model="ir.ui.view">
+            <field name="neomed_new.patients_tree_view">Student Tree</field>
+            <field name="model">neonatal_pathology_department.patient_record</field>
+            <field name="arch" type="xml">
+                <tree string="Students">
+                    <field name="name"/>
+                    <field name="case_history_number"/>
+                    <field name="date_of_birth"/>
+                    <field name="baby_gender"/>
+                    <field name="severity_of_the_condition"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--                       Карта основная_mothers (form)              -->
+        <record id="patients_form_view" model="ir.ui.view">
+            <field name="model">neonatal_pathology_department.patient_record</field>
+            <field name="arch" type="xml">
+                <form string="Patients">
+                    <sheet>
+                        <div class="oe_button_box">
+                            <button name="open_pathology_department"
+                                    type="object"
+                                    class="oe_stat_button"
+                                    icon="/neomed_new/static/img/ambulance_icon.png"
+                                    attrs="{'invisible': [('check_pathology_department', '==', False)]}">
+                                <field name="check_pathology_department" widget="statinfo"/>
+                            </button>
+                        </div>
+                        <div class="oe_title">
+                            <h3>
+                                Номер истории развития новорожденного №
+                                <field name="case_history_number"/>
+                            </h3>
+                        </div>
+                        <group>
+                            <group string="Данные матери">
+                                <field name="name"/>
+                                <field name="date_of_birth"/>
+                                <field name="number_of_pregnancies"/>
+                                <field name="number_of_births"/>
+                                <br/>
+                                <field name="gestational_age"/>
+                            </group>
+                            <group string="Данные ребенка">
+                                <field name="baby_gender"/>
+                                <field name="severity_of_the_condition"/>
+                                <field name="apgar_scores"/>
+                                <br/>
+                                <field name="birth_weight" widget='integer'/>
+                                <field name="growth_at_birth" widget='integer'/>
+                                <field name="head_circumference" widget='integer'/>
+                                <field name="chest_circumference" widget='integer'/>
+                            </group>
+                            <group colspan="10">
+                                <field name="history_of_pregnancy"/>
+                            </group>
+                            <group colspan="2">
+                                <field name="obstetric_diagnosis"/>
+                            </group>
+                            <br/>
+                            <group colspan="2" string="Диагноз при поступлении">
+                                <field name="primary_diagnosis"/>
+                                <field name="complication_of_the_primary_diagnosis"/>
+                                <field name="concomitant_of_the_primary_diagnosis"/>
+                                <field name="concomitant_diagnosis_id" string=""/>
+                            </group>
+                        </group>
+                        <notebook colspan="5" modifiers="{}">
+                            <page string="Движение по отделениям">
+                                <field name="patient_movement_ids" string="Движение пациента"
+                                       context="{'default_mother_id': active_id}">
+<!--                                    <tree default_order="date_of_case_opening" editable="bottom">-->
+                                    <tree editable="bottom">
+                                        <field name="no"/>
+                                        <field name="case_history_number"/>
+                                        <field name="date_of_case_opening"/>
+                                        <field name="date_of_case_closing"/>
+                                        <field name="bed_day"/>
+                                        <field name="motion"/>
+                                    </tree>
+                                </field>
+                            </page>
+<!--                            <page string="Обследования">-->
+<!--                                <field name="analyzes_ids" string=" Анализы/Консультации">-->
+<!--                                    <tree>-->
+<!--                                        <field name="sequence" widget="handle"/>-->
+<!--                                        <field name="date"/>-->
+<!--                                        <field name="analysis_name"/>-->
+<!--                                    </tree>-->
+<!--                                </field>-->
+<!--                            </page>-->
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <menuitem id="pathology_department_menu"
+                  name="Отделение патологии новорожденных"
+                  sequence="0"
+                  action='pathology_department_action'/>
+
+    </data>
+</odoo>
